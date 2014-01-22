@@ -1,16 +1,14 @@
-/* To do:
- *
- * * muted (w localStorage)
- *
-*/
-
 function playCurrentThemeHurry(name_raw) {
   AudioPlayer.playTheme("Hurry " + (name_raw || area.theme));
 }
 
-// The actual code!
-/* Sounds.js */
-
+/* AudioPlayr.js
+ * A library to play audio files derived from Full Screen Mario
+ * This will:
+ * 1. Load files via AJAX upon startup
+ * 2. Create appropriate HTML5 <audio> elements 
+ * 3. Play and pause those audio files on demand
+*/
 function AudioPlayr(settings) {
   "use strict";
   
@@ -110,7 +108,7 @@ function AudioPlayr(settings) {
         volume_real = Number(volume_real) || 1;
       break;
     }
-    sound.volume = sound.volume_real = volume_real;
+    sound.volume = sound.volume_real = volume_real /**/ = 0; /**/;
     
     return sound;
   }
